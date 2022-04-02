@@ -1,14 +1,25 @@
 import React from "react";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 import "app/App.css";
 import logo from "app/logo.svg";
 import Header from "components/Header";
 import CommentModal from "components/CommentModal";
 import CommentListContainer from "components/CommentListContainer";
+import { purple } from "@material-ui/core/colors";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#fefefe",
+    },
+    secondary: purple,
+  },
+});
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header />
 
       <CommentModal />
@@ -17,7 +28,7 @@ function App() {
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 
