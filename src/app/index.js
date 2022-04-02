@@ -6,13 +6,11 @@ import logo from "app/logo.svg";
 import Header from "components/Header";
 import CommentModal from "components/CommentModal";
 import CommentListContainer from "components/CommentListContainer";
-import { purple } from "@material-ui/core/colors";
+import { green, purple } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: "#fefefe",
-    },
+    primary: green,
     secondary: purple,
   },
 });
