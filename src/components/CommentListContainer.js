@@ -12,9 +12,20 @@ const CommentListContainer = () => {
   const dispatch = useDispatch();
   const mockComments = useSelector(getViewMockComments);
 
-  console.log(mockComments);
+  //   TODO: error handling
+  const commentsWithInitials = mockComments.map((comment) => {
+    const { name } = comment;
+    const nameArray = name.split(" ");
+    const firstNameInitial = nameArray[0].charAt(0);
+    const lastNameInitial = nameArray[1].charAt(0);
+    const initials = `${firstNameInitial}${lastNameInitial}`;
+    return {
+      ...comment,
+      initials,
+    };
+  });
 
-  return <CommentList mockComments={mockComments} />;
+  return <CommentList mockComments={commentsWithInitials} />;
 };
 
 export default CommentListContainer;

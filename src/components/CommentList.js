@@ -20,7 +20,9 @@ const CommentList = ({ mockComments }) => {
     <div key={comment.id}>
       <ListItem key={comment.id} alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt={comment.name} src="/static/images/avatar/1.jpg">
+            {comment.initials}
+          </Avatar>
         </ListItemAvatar>
         <ListItemText primary={comment.name} secondary={comment.comment} />
       </ListItem>
