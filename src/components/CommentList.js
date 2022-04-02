@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
+import { mockComments } from "store/api";
 import Modal from "@material-ui/core/Modal";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
