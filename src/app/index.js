@@ -4,7 +4,7 @@ import "app/App.css";
 import logo from "app/logo.svg";
 import Header from "components/Header";
 import CommentModal from "components/CommentModal";
-import CommentList from "components/CommentList";
+import CommentListContainer from "components/CommentListContainer";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
 
       <CommentModal />
 
-      <CommentList />
+      <CommentListContainer />
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </div>

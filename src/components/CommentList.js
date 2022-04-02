@@ -18,8 +18,8 @@ const CommentList = () => {
   const dispatch = useDispatch();
 
   const renderComments = mockComments.map((comment) => (
-    <>
-      <ListItem alignItems="flex-start">
+    <div key={comment.id}>
+      <ListItem key={comment.id} alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
@@ -41,7 +41,7 @@ const CommentList = () => {
         />
       </ListItem>
       <Divider variant="inset" component="li" />
-    </>
+    </div>
   ));
 
   return <List className={classes.root}>{renderComments}</List>;
