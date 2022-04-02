@@ -25,17 +25,21 @@ const Header = () => {
   const handleOpen = () => dispatch(openCommentsModal());
 
   return (
-    <AppBar position="fixed" className={classes.root}>
-      <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          Commentor
-        </Typography>
+    <>
+      <AppBar position="fixed" className={classes.root}>
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            Commentor
+          </Typography>
 
-        <Button color="inherit" onClick={handleOpen}>
-          Add Comment
-        </Button>
-      </Toolbar>
-    </AppBar>
+          <Button color="inherit" onClick={handleOpen}>
+            Add Comment
+          </Button>
+        </Toolbar>
+      </AppBar>
+      {/* Hide a second toolbar under the fixed toolbar for margins. Does not work on IE11 */}
+      <Toolbar />
+    </>
   );
 };
 

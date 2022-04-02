@@ -21,6 +21,9 @@ As a user, I would like to be able to read a list of comments, add a comment, an
    2) Should be listed in descending order of comment count
 
 
+- avatar
+- name
+- comment count
 ### Useful Links
 
 * https://v4.mui.com/
