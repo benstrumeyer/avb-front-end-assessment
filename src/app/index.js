@@ -10,8 +10,16 @@ import { green, purple } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
-    primary: green,
-    secondary: purple,
+    primary: {
+      main: "#303633",
+    },
+    secondary: {
+      main: "#8BE8CB",
+      contrastText: "#ffcc00",
+    },
+    modalBackground: "#FAF9F6",
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
   },
 });
 
