@@ -1,6 +1,7 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import "app/App.css";
 import logo from "app/logo.svg";
 import Header from "components/Header";
@@ -22,14 +23,35 @@ const theme = createMuiTheme({
   },
 });
 
+const useStyles = makeStyles((theme) => ({
+  listContainer: {
+    margin: theme.spacing(2),
+  },
+  title: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
+
 function App() {
+  const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
       <Header />
 
       <CommentModalContainer />
 
-      <CommentListContainer />
+      <div className={classes.listContainer}>
+        <Typography variant="h6" className={classes.title}>
+          Top 3 Comments
+        </Typography>
+        <CommentListContainer />
+
+        <Typography variant="h6" className={classes.title}>
+          All Comments
+        </Typography>
+        <CommentListContainer />
+      </div>
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </div>
