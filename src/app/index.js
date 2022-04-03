@@ -4,9 +4,8 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import "app/App.css";
 import logo from "app/logo.svg";
 import Header from "components/Header";
-import CommentModal from "components/CommentModal";
+import CommentModalContainer from "components/CommentModalContainer";
 import CommentListContainer from "components/CommentListContainer";
-import { green, purple } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
@@ -28,7 +27,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header />
 
-      <CommentModal />
+      <CommentModalContainer />
 
       <CommentListContainer />
       <div className="App-header">
