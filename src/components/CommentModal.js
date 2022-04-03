@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CommentModal = ({ handleClose, isOpen }) => {
+const CommentModal = ({ handleClose, isOpen, addComment }) => {
   const classes = useStyles();
 
   return (
@@ -64,7 +64,11 @@ const CommentModal = ({ handleClose, isOpen }) => {
             label="Comment"
             variant="outlined"
           />
-          <Button className={classes.button} variant="contained">
+          <Button
+            onClick={addComment}
+            className={classes.button}
+            variant="contained"
+          >
             Add Comment
           </Button>
         </form>

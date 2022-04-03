@@ -17,6 +17,18 @@ const viewSlice = createSlice({
     closeCommentsModal(state) {
       state.commentsModalOpen = false;
     },
+    addNewComment(state, action) {
+      const { name, comment } = action.payload;
+      const id = state.mockComments.length + 1;
+      const newComment = {
+        id,
+        name,
+        comment,
+      };
+      const clone = [...state.mockComments];
+      clone.push(newComment);
+      state.mockComments = clone;
+    },
   },
 });
 
@@ -32,5 +44,9 @@ export const getViewMockComments = createSelector(
   (slice) => slice.mockComments
 );
 
-export const { openCommentsModal, closeCommentsModal } = viewSlice.actions;
+export const {
+  openCommentsModal,
+  closeCommentsModal,
+  addNewComment,
+} = viewSlice.actions;
 export default viewSlice.reducer;
