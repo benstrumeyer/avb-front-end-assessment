@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
@@ -42,6 +42,19 @@ const useStyles = makeStyles((theme) => ({
 const CommentModal = ({ handleClose, isOpen, addComment }) => {
   const classes = useStyles();
 
+  const [name, setName] = useState("");
+  const [comment, setComment] = useState("");
+
+  const _handleNameTextFieldChange = (event) => {
+    const { value } = event.target;
+    setName(value);
+  };
+
+  const _handleCommentTextFieldChange = (event) => {
+    const { value } = event.target;
+    setComment(value);
+  };
+
   return (
     <Modal
       open={isOpen}
@@ -57,15 +70,17 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
             id="outlined-basic"
             label="Name"
             variant="outlined"
+            onChange={_handleNameTextFieldChange}
           />
           <TextField
             className={classes.textfield}
             id="outlined-basic"
             label="Comment"
             variant="outlined"
+            onChange={_handleCommentTextFieldChange}
           />
           <Button
-            onClick={addComment}
+            onClick={() => addComment(name, comment)}
             className={classes.button}
             variant="contained"
           >

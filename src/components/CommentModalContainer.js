@@ -12,8 +12,8 @@ const CommentModalContainer = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector(getViewCommentsModalOpen);
   const handleClose = () => dispatch(closeCommentsModal());
-  const addComment = () =>
-    dispatch(addNewComment({ name: "ben strumeyer", comment: "test" }));
+  const addComment = (name, comment) =>
+    dispatch(addNewComment({ name, comment }));
 
   return (
     <CommentModal
