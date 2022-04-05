@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import "app/App.css";
 import logo from "app/logo.svg";
@@ -6,6 +7,7 @@ import Header from "components/Header";
 import CommentModalContainer from "components/CommentModalContainer";
 import CommentListContainer from "components/CommentListContainer";
 import TopCommentersContainer from "components/TopCommentersContainer";
+import { getCommentsFromAPI, getComments } from "store/slices/view";
 
 const theme = createMuiTheme({
   palette: {
@@ -20,6 +22,12 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCommentsFromAPI());
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <Header />
