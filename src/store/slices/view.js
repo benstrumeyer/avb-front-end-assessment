@@ -45,17 +45,17 @@ const viewSlice = createSlice({
       state.commentsModalOpen = false;
     },
     addNewComment(state, action) {
-      // Change to add to comments
       const { name, comment } = action.payload;
-      const id = state.mockComments.length + 1;
+      const id = state.comments.length + 1;
       const newComment = {
+        postId: 100,
         id,
         name,
-        comment,
+        email: "randomEmail@gmail.com",
+        body: comment,
       };
-      const clone = [...state.mockComments];
-      clone.push(newComment);
-      state.mockComments = clone;
+      const clone = [...state.comments, newComment];
+      state.comments = clone;
     },
   },
   extraReducers: {
