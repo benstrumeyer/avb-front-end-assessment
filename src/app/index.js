@@ -7,7 +7,7 @@ import Header from "components/Header";
 import CommentModalContainer from "components/CommentModalContainer";
 import CommentListContainer from "components/CommentListContainer";
 import TopCommentersContainer from "components/TopCommentersContainer";
-import { getCommentsFromAPI, getisLoading } from "store/slices/view";
+import { getCommentsFromAPI, getIsLoading } from "store/slices/view";
 
 const theme = createMuiTheme({
   palette: {
@@ -23,7 +23,7 @@ const theme = createMuiTheme({
 
 function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getisLoading);
+  const isLoading = useSelector(getIsLoading);
 
   useEffect(() => {
     dispatch(getCommentsFromAPI());
@@ -31,19 +31,14 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Header />
+      <CommentModalContainer />
+      <TopCommentersContainer />
+      <CommentListContainer />
       {isLoading && (
-        <>
-          <Header />
-
-          <CommentModalContainer />
-
-          <TopCommentersContainer />
-
-          <CommentListContainer />
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-          </div>
-        </>
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
       )}
     </ThemeProvider>
   );

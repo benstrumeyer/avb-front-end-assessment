@@ -13,8 +13,9 @@ const COMMENT_URL = "https://jsonplaceholder.typicode.com/comments";
 
 export const getCommentsFromAPI = createAsyncThunk(
   `${name}/getCommentsFromAPI`,
-  async () => {
+  async (id, thunkAPI) => {
     return await fetch(COMMENT_URL).then((res) => {
+      thunkAPI.dispatch(hideLoadingIcon);
       return res.json();
     });
   }
@@ -74,7 +75,7 @@ const viewSlice = createSlice({
 
 const getSlice = (state) => state[name] || {};
 
-export const getisLoading = createSelector(
+export const getIsLoading = createSelector(
   getSlice,
   (slice) => slice.isLoading
 );

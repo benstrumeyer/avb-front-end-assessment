@@ -2,11 +2,11 @@
  * Takes an array of objects with a name property and adds an initials property. We can assume name is at least one character long
  * @memberOf BackgroundUtils
  *
- * @param  {array} 	mockComments  	array of comments
+ * @param  {array} 	comments  	array of comments
  */
 
-export const getCommentsWithInitials = (mockComments) => {
-  const commentsWithInitials = mockComments.map((comment) => {
+export const getCommentsWithInitials = (comments) => {
+  const commentsWithInitials = comments.map((comment) => {
     const { name } = comment;
     let initials = "";
     if (!name) return "";
@@ -32,14 +32,14 @@ export const getCommentsWithInitials = (mockComments) => {
  * Takes an array of comments in the form of [{ id, name, comment }] and returns the top three commenters in descending order
  * @memberOf BackgroundUtils
  *
- * @param  {array} 	mockComments  	array of comments
+ * @param  {array} 	comments  	array of comments
  */
 
-export const getTopCommenters = (mockComments) => {
+export const getTopCommenters = (comments) => {
   // Create a new empty result object. For each comment, if the name is not found in the array, add key/value pair where the key is the name
   // and value is the count=1. If it is found, increase the count of that name by 1.
   let commentCountByName = {};
-  for (let comment of mockComments) {
+  for (let comment of comments) {
     const { name } = comment;
     if (!commentCountByName.hasOwnProperty(name)) {
       commentCountByName = {
