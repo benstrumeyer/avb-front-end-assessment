@@ -13,9 +13,9 @@ const COMMENT_URL = "https://jsonplaceholder.typicode.com/comments";
 
 export const getCommentsFromAPI = createAsyncThunk(
   `${name}/getCommentsFromAPI`,
-  async (id, thunkAPI) => {
+  async (arg, thunkAPI) => {
     return await fetch(COMMENT_URL).then((res) => {
-      thunkAPI.dispatch(hideLoadingIcon);
+      thunkAPI.dispatch(hideLoadingIcon());
       return res.json();
     });
   }

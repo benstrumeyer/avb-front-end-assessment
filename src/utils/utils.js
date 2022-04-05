@@ -1,34 +1,4 @@
 /**
- * Takes an array of objects with a name property and adds an initials property. We can assume name is at least one character long
- * @memberOf BackgroundUtils
- *
- * @param  {array} 	comments  	array of comments
- */
-
-export const getCommentsWithInitials = (comments) => {
-  const commentsWithInitials = comments.map((comment) => {
-    const { name } = comment;
-    let initials = "";
-    if (!name) return "";
-    const nameArray = name.split(" ");
-    const firstNameInitial = nameArray[0].charAt(0).toUpperCase();
-    if (nameArray.length === 1) {
-      initials = firstNameInitial;
-    } else {
-      const lastNameInitial = nameArray[nameArray.length - 1]
-        .charAt(0)
-        .toUpperCase();
-      initials = `${firstNameInitial}${lastNameInitial}`;
-    }
-    return {
-      ...comment,
-      initials,
-    };
-  });
-  return commentsWithInitials;
-};
-
-/**
  * Takes an array of comments in the form of [{ id, name, comment }] and returns the top three commenters in descending order
  * @memberOf BackgroundUtils
  *
@@ -64,4 +34,48 @@ export const getTopCommenters = (comments) => {
 
   const sorted = topCommentersByNameArray.sort(sortDescending);
   return sorted.slice(0, 3);
+};
+
+/*
+ * Takes an array of objects with a name property and adds an initials property.
+ * @memberOf BackgroundUtils
+ *
+ * @param  {array} 	comments  	array of comments
+ */
+export const addInitials = (comments) => {
+  const commentsWithInitials = comments.map((comment) => {
+    const { name } = comment;
+    let initials = "";
+    if (!name) return "";
+    const nameArray = name.split(" ");
+    const firstNameInitial = nameArray[0].charAt(0).toUpperCase();
+    if (nameArray.length === 1) {
+      initials = firstNameInitial;
+    } else {
+      const lastNameInitial = nameArray[nameArray.length - 1]
+        .charAt(0)
+        .toUpperCase();
+      initials = `${firstNameInitial}${lastNameInitial}`;
+    }
+    return {
+      ...comment,
+      initials,
+    };
+  });
+  return commentsWithInitials;
+};
+
+/*
+ * Takes an array of objects and adds an id property based on the index of the array
+ * @memberOf BackgroundUtils
+ *
+ * @param  {array} 	comments  	array of comments
+ */
+export const addIDs = (comments) => {
+  return comments.map((comment, index) => {
+    return {
+      ...comment,
+      id: index,
+    };
+  });
 };

@@ -100,14 +100,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Summary
 
 - Responsive
+- Fetches comments from API
 - Uses container/presentational pattern
 - Added actions and selectors per the redux toolkit conventions
-- Top commenters is updated automatically as comments are added
+- Top 3 commenters are updated automatically as comments are added
 - Only defined theme.palette.color.main colors since light and dark colors are inferred from there per the docs
 - When adding a comment, name and comment fields cannot be blank
 - The <Header> component hides a second toolbar under the fixed toolbar for margins per the docs. Does not work on IE11 */}
-- Adhered to common UI/UX + accessibility practices such as adding aria labels, action buttons are green, modal disappears on comment submit
+- Adhered to common UI/UX + accessibility practices such as adding aria labels, action buttons are green, modal disappears on comment submit, Loading icon disappears when the API returns a response 
 
 Util functions
-- getCommentsWithInitials(): Takes an array of objects with a name property and adds an initials property. We can assume name is at least one character long since you cannot add a comment with blank fields, but a check is made anyway just in case.
 - getTopCommenters(): Create a new empty result object. For each comment, if the name is not found in the array, add key/value pair where the key is the name and value is the count=1. If it is found, increase the count of that name by 1. Sidenote: I used a hashmap and converted to an array instead of storing the comments directly in an array of objects because .find()-ing and checking if a name value was there would be at worst case O(n^2) time if the elements were all commenters with unique names. 
+
+- addInitials(): Takes an array of objects with a name property and adds an initials property
+- addIDs(): Takes an array of objects and adds an id property based on the index of the array

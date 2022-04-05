@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CommentList = ({ mockComments }) => {
+const CommentList = ({ comments }) => {
   const classes = useStyles();
-  const renderTopCommenters = mockComments.map((commenter) => (
+  const renderTopCommenters = comments.map((commenter) => (
     <div key={commenter.id} className={classes.commenter}>
       <Chip
         className={classes.chip}
