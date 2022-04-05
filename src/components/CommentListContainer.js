@@ -8,9 +8,9 @@ const CommentListContainer = () => {
   const mockComments = useSelector(getViewMockComments);
   const comments = useSelector(getComments);
   console.log("comments: ", comments);
-  const commentsWithInitials = getCommentsWithInitials(mockComments);
+  const commentsWithInitials = getCommentsWithInitials(comments);
 
-  return <CommentList comments={comments} />;
+  return <CommentList comments={commentsWithInitials} />;
 };
 
 export default CommentListContainer;

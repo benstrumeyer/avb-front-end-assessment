@@ -38,7 +38,7 @@ const CommentList = ({ comments }) => {
             {comment.initials}
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={comment.name} secondary={comment.comment} />
+        <ListItemText primary={comment.name} secondary={comment.body} />
       </ListItem>
       <Divider variant="inset" component="li" />
     </div>
