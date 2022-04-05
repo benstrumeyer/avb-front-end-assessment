@@ -9,12 +9,10 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-  listContainer: {
-    margin: theme.spacing(2),
-  },
   title: {
     display: "flex",
     justifyContent: "center",
+    margin: theme.spacing(2),
   },
 }));
 
@@ -37,7 +35,7 @@ const CommentList = ({ mockComments }) => {
   return (
     <>
       <Typography variant="h6" className={classes.title}>
-        All Comments
+        Top 3 Commenters
       </Typography>
       <List className={classes.root}>{renderComments}</List>
     </>

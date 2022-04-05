@@ -7,7 +7,7 @@ import logo from "app/logo.svg";
 import Header from "components/Header";
 import CommentModalContainer from "components/CommentModalContainer";
 import CommentListContainer from "components/CommentListContainer";
-import TopCommentListContainer from "components/TopCommentListContainer";
+import TopCommentersContainer from "components/TopCommentersContainer";
 
 const theme = createMuiTheme({
   palette: {
@@ -24,35 +24,17 @@ const theme = createMuiTheme({
   },
 });
 
-const useStyles = makeStyles((theme) => ({
-  listContainer: {
-    margin: theme.spacing(2),
-  },
-  title: {
-    display: "flex",
-    justifyContent: "center",
-  },
-}));
-
 function App() {
-  const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
       <Header />
 
       <CommentModalContainer />
 
-      <div className={classes.listContainer}>
-        <Typography variant="h6" className={classes.title}>
-          Top 3 Comments
-        </Typography>
-        <TopCommentListContainer />
+      <TopCommentersContainer />
 
-        <Typography variant="h6" className={classes.title}>
-          All Comments
-        </Typography>
-        <CommentListContainer />
-      </div>
+      <CommentListContainer />
+
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </div>

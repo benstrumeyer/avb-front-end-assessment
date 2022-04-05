@@ -32,7 +32,7 @@ export const getCommentsWithInitials = (mockComments) => {
  *
  * @param  {array} 	mockComments  	array of comments
  */
-export const getTopThreeCommenters = (mockComments) => {
+export const getTopCommenters = (mockComments) => {
   let topCommentersByName = {};
   for (let comment of mockComments) {
     const { name, id } = comment;
