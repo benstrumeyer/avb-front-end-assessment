@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 const CommentList = ({ mockComments }) => {
   const classes = useStyles();
   const renderTopCommenters = mockComments.map((commenter) => (
-    <div className={classes.commenter}>
+    <div key={commenter.id} className={classes.commenter}>
       <Chip
         className={classes.chip}
         color="primary"

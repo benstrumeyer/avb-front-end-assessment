@@ -28,11 +28,7 @@ const CommentList = ({ comments }) => {
   const classes = useStyles();
   const renderComments = comments.map((comment) => (
     <div key={comment.id}>
-      <ListItem
-        className={classes.listItem}
-        key={comment.id}
-        alignItems="flex-start"
-      >
+      <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <Avatar
             className={classes.avatar}

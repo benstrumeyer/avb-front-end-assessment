@@ -1,4 +1,3 @@
-
 # AVB Frontend Assesment
 
 ## User Story
@@ -101,6 +100,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Summary
 
 - Responsive
+- Uses container/presentational pattern
 - Added actions and selectors per the redux toolkit conventions
 - Top commenters is updated automatically as comments are added
 - Only defined theme.palette.color.main colors since light and dark colors are inferred from there per the docs

@@ -31,7 +31,6 @@ const Header = () => {
           <Typography variant="h6" className={classes.title}>
             Commentor
           </Typography>
-
           <Button color="inherit" onClick={_handleOpen}>
             Add Comment
           </Button>
