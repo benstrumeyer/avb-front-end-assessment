@@ -101,12 +101,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Summary
 
 - Responsive
+- Added actions and selectors per the redux toolkit conventions
+- Top commenters is updated automatically as comments are added
+- Only defined theme.palette.color.main colors since light and dark colors are inferred from there per the docs
 - When adding a comment, name and comment fields cannot be blank
 - The <Header> component hides a second toolbar under the fixed toolbar for margins per the docs. Does not work on IE11 */}
-- Added actions and selectors per the redux toolkit conventions
-- Only defined theme.palette.color.main colors since light and dark colors are inferred from there per the docs
 - Adhered to common UI/UX + accessibility practices such as adding aria labels, action buttons are green, modal disappears on comment submit
-- Top commenters is updated automatically as comments are added
 
 Util functions
 - getCommentsWithInitials(): Takes an array of objects with a name property and adds an initials property. We can assume name is at least one character long since you cannot add a comment with blank fields, but a check is made anyway just in case.
