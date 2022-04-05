@@ -6,10 +6,11 @@ import { getViewMockComments } from "store/slices/view";
 
 const TopCommentListContainer = () => {
   const mockComments = useSelector(getViewMockComments);
-
-  const commentsWithInitials = getCommentsWithInitials(mockComments);
-  const topThreeCommenters = getTopThreeCommenters(commentsWithInitials);
-  return <CommentList mockComments={topThreeCommenters} />;
+  const topThreeCommenters = getTopThreeCommenters(mockComments);
+  const topThreeCommentersWithInitials = getCommentsWithInitials(
+    topThreeCommenters
+  );
+  return <CommentList mockComments={topThreeCommentersWithInitials} />;
 };
 
 export default TopCommentListContainer;
