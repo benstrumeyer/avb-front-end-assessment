@@ -48,6 +48,7 @@ const viewSlice = createSlice({
     addNewComment(state, action) {
       const { name, comment } = action.payload;
       const id = state.comments.length + 1;
+      // Preserves data format even though most fields aren't used
       const newComment = {
         postId: 100,
         id,
