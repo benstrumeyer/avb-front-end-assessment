@@ -15,7 +15,9 @@ export const getCommentsWithInitials = (mockComments) => {
     if (nameArray.length === 1) {
       initials = firstNameInitial;
     } else {
-      const lastNameInitial = nameArray[1].charAt(0).toUpperCase();
+      const lastNameInitial = nameArray[nameArray.length - 1]
+        .charAt(0)
+        .toUpperCase();
       initials = `${firstNameInitial}${lastNameInitial}`;
     }
     return {

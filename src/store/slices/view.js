@@ -13,7 +13,7 @@ const COMMENT_URL = "https://jsonplaceholder.typicode.com/comments";
 
 export const getCommentsFromAPI = createAsyncThunk(
   `${name}/getCommentsFromAPI`,
-  async (dispatch, getState) => {
+  async () => {
     return await fetch(COMMENT_URL).then((res) => {
       return res.json();
     });
@@ -59,15 +59,14 @@ const viewSlice = createSlice({
     },
   },
   extraReducers: {
-    [getCommentsFromAPI.pending]: (state, action) => {
+    [getCommentsFromAPI.pending]: (state) => {
       state.commentStatus = PENDING;
     },
     [getCommentsFromAPI.fulfilled]: (state, action) => {
       state.commentStatus = SUCCESS;
       state.comments = action.payload;
     },
-    [getCommentsFromAPI.rejected]: (state, action) => {
-      console.log(state.comments);
+    [getCommentsFromAPI.rejected]: (state) => {
       state.commentStatus = REJECTED;
     },
   },
