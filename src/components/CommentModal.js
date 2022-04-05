@@ -54,6 +54,11 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
     setComment(value);
   };
 
+  const _addCommentAndCloseModal = (name, comment) => {
+    addComment(name, comment);
+    handleClose();
+  };
+
   return (
     <Modal
       open={isOpen}
@@ -79,7 +84,7 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
             onChange={_handleCommentTextFieldChange}
           />
           <Button
-            onClick={() => addComment(name, comment)}
+            onClick={() => _addCommentAndCloseModal(name, comment)}
             className={classes.button}
             variant="contained"
           >
