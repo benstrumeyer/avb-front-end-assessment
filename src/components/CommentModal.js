@@ -74,6 +74,8 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
             label="Name"
             variant="outlined"
             onChange={_handleNameTextFieldChange}
+            required
+            aria-required
           />
           <TextField
             className={classes.textfield}
@@ -82,6 +84,8 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
             variant="outlined"
             multiline
             rows={6}
+            required
+            aria-required
             onChange={_handleCommentTextFieldChange}
           />
           <Button

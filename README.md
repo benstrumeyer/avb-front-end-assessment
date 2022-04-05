@@ -105,14 +105,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - The <Header> component hides a second toolbar under the fixed toolbar for margins per the docs. Does not work on IE11 */}
 - Added actions and selectors per the redux toolkit conventions
 - Only defined theme.palette.color.main colors since light and dark colors are inferred from there per the docs
-- Adhered to common UI/UX practices such as adding aria labels, action buttons are green
+- Adhered to common UI/UX + accessibility practices such as adding aria labels, action buttons are green, modal disappears on comment submit
 - Top commenters is updated automatically as comments are added
 
 Util functions
 - getCommentsWithInitials(): Takes an array of objects with a name property and adds an initials property. We can assume name is at least one character long since you cannot add a comment with blank fields, but a check is made anyway just in case.
 - getTopCommenters(): Create a new empty result object. For each comment, if the name is not found in the array, add key/value pair where the key is the name and value is the count=1. If it is found, increase the count of that name by 1. Sidenote: I used a hashmap and converted to an array instead of storing the comments directly in an array of objects because .find()-ing and checking if a name value was there would be at worst case O(n^2) time if the elements were all commenters with unique names. 
-
-Possible upgrades: 
-Show toast on successful comment submit
-Show error message when name or comment field are blank
-Paginate
