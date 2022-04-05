@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     flexWrap: "wrap",
   },
+  chip: {
+    margin: theme.spacing(1),
+  },
 }));
 
 const CommentList = ({ mockComments }) => {
@@ -29,8 +32,14 @@ const CommentList = ({ mockComments }) => {
   const renderTopCommenters = mockComments.map((commenter) => (
     <div className={classes.commenter}>
       <Chip
+        className={classes.chip}
+        color="primary"
         avatar={
-          <Avatar alt={commenter.name} src="/static/images/avatar/1.jpg">
+          <Avatar
+            className={classes.avatar}
+            alt={commenter.name}
+            src="/static/images/avatar/1.jpg"
+          >
             {commenter.initials}
           </Avatar>
         }
@@ -41,10 +50,9 @@ const CommentList = ({ mockComments }) => {
 
   return (
     <>
-      <Typography variant="h6" className={classes.title}>
+      <Typography variant="h4" className={classes.title}>
         Top 3 Commenters
       </Typography>
-      {/* <List className={classes.root}>{renderComments}</List> */}
       <div className={classes.topCommenterContainer}>{renderTopCommenters}</div>
     </>
   );

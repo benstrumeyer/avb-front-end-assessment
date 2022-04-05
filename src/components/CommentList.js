@@ -10,11 +10,16 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   listContainer: {
-    margin: theme.spacing(2),
+    margin: "auto",
+    width: "95%",
   },
-  title: {
-    display: "flex",
-    justifyContent: "center",
+  listItem: {
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+    },
+  },
+  avatar: {
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
@@ -22,9 +27,17 @@ const CommentList = ({ mockComments }) => {
   const classes = useStyles();
   const renderComments = mockComments.map((comment) => (
     <div key={comment.id}>
-      <ListItem key={comment.id} alignItems="flex-start">
+      <ListItem
+        className={classes.listItem}
+        key={comment.id}
+        alignItems="flex-start"
+      >
         <ListItemAvatar>
-          <Avatar alt={comment.name} src="/static/images/avatar/1.jpg">
+          <Avatar
+            className={classes.avatar}
+            alt={comment.name}
+            src="/static/images/avatar/1.jpg"
+          >
             {comment.initials}
           </Avatar>
         </ListItemAvatar>
@@ -36,10 +49,7 @@ const CommentList = ({ mockComments }) => {
 
   return (
     <>
-      <Typography variant="h6" className={classes.title}>
-        All Comments
-      </Typography>
-      <List className={classes.root}>{renderComments}</List>
+      <List className={classes.listContainer}>{renderComments}</List>
     </>
   );
 };

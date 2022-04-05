@@ -1,7 +1,5 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import "app/App.css";
 import logo from "app/logo.svg";
 import Header from "components/Header";
@@ -12,10 +10,10 @@ import TopCommentersContainer from "components/TopCommentersContainer";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#303633",
+      main: "#016FB9",
     },
     secondary: {
-      main: "#8BE8CB",
+      main: "#22AED1",
       contrastText: "#ffcc00",
     },
     modalBackground: "#FAF9F6",
