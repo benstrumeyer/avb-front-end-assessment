@@ -25,3 +25,38 @@ export const getCommentsWithInitials = (mockComments) => {
   });
   return commentsWithInitials;
 };
+
+/**
+ * Takes an array of comments in the form of { id, name, comment } and returns the top three commenters in descending order
+ * @memberOf BackgroundUtils
+ *
+ * @param  {array} 	mockComments  	array of comments
+ */
+export const getTopThreeCommenters = (mockComments) => {
+  let topCommentersByName = {};
+  for (let comment of mockComments) {
+    const { name, id } = comment;
+    if (!topCommentersByName.hasOwnProperty(name)) {
+      topCommentersByName = {
+        ...topCommentersByName,
+        [name]: 1,
+      };
+    } else if (name in topCommentersByName) {
+      topCommentersByName[name]++;
+    }
+  }
+
+  const sortDescending = (a, b) => b.count - a.count;
+
+  // Transform object of key/values into array of objects containing the key/value
+  const topCommentersByNameArray = [];
+  for (let name in topCommentersByName) {
+    topCommentersByNameArray.push({
+      name: name,
+      count: topCommentersByName[name],
+    });
+  }
+
+  const sorted = topCommentersByNameArray.sort(sortDescending);
+  return sorted.slice(0, 3);
+};

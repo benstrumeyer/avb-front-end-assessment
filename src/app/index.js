@@ -7,6 +7,7 @@ import logo from "app/logo.svg";
 import Header from "components/Header";
 import CommentModalContainer from "components/CommentModalContainer";
 import CommentListContainer from "components/CommentListContainer";
+import TopCommentListContainer from "components/TopCommentListContainer";
 
 const theme = createMuiTheme({
   palette: {
@@ -45,7 +46,7 @@ function App() {
         <Typography variant="h6" className={classes.title}>
           Top 3 Comments
         </Typography>
-        <CommentListContainer />
+        <TopCommentListContainer />
 
         <Typography variant="h6" className={classes.title}>
           All Comments
