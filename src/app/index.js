@@ -16,9 +16,6 @@ const theme = createMuiTheme({
       main: "#22AED1",
       contrastText: "#ffcc00",
     },
-    modalBackground: "#FAF9F6",
-    contrastThreshold: 3,
-    tonalOffset: 0.2,
   },
 });
 

@@ -5,17 +5,12 @@ import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { blue } from "@material-ui/core/colors";
-
 const useStyles = makeStyles((theme) => ({
-  modal: {
+  modalContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    height: "50%",
-    width: "50%",
     margin: "auto",
-    top: "25%",
   },
   box: {
     backgroundColor: "#fff",
@@ -25,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "column",
-    height: "50%",
-    backgroundColor: blue,
   },
   textfield: {
     margin: theme.spacing(1),
@@ -55,6 +48,7 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
   };
 
   const _addCommentAndCloseModal = (name, comment) => {
+    if (!name || !comment) return;
     addComment(name, comment);
     handleClose();
   };
@@ -63,12 +57,17 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
     <Modal
       open={isOpen}
       onClose={handleClose}
-      className={classes.modal}
+      className={classes.modalContainer}
       aria-labelledby="Add Comment Modal"
-      aria-describedby="Add a comment by typing in the fields"
+      aria-describedby="Add a comment by typing a name and comment"
     >
       <Box className={classes.box} component={`div`} m={1}>
-        <form className={classes.form} noValidate autoComplete="off">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={classes.form}
+          noValidate
+          autoComplete="off"
+        >
           <TextField
             className={classes.textfield}
             id="outlined-basic"
@@ -81,6 +80,8 @@ const CommentModal = ({ handleClose, isOpen, addComment }) => {
             id="outlined-basic"
             label="Comment"
             variant="outlined"
+            multiline
+            rows={6}
             onChange={_handleCommentTextFieldChange}
           />
           <Button

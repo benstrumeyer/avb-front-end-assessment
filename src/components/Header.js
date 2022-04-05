@@ -22,7 +22,7 @@ const Header = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const handleOpen = () => dispatch(openCommentsModal());
+  const _handleOpen = () => dispatch(openCommentsModal());
 
   return (
     <>
@@ -32,7 +32,7 @@ const Header = () => {
             Commentor
           </Typography>
 
-          <Button color="inherit" onClick={handleOpen}>
+          <Button color="inherit" onClick={_handleOpen}>
             Add Comment
           </Button>
         </Toolbar>

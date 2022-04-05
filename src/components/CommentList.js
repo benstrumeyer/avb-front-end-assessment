@@ -6,7 +6,6 @@ import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   listContainer: {
@@ -14,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
     width: "95%",
   },
   listItem: {
+    display: "flex",
+    alignItems: "flex-start",
     "&:hover": {
       backgroundColor: theme.palette.secondary.main,
     },
@@ -23,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CommentList = ({ mockComments }) => {
+const CommentList = ({ comments }) => {
   const classes = useStyles();
-  const renderComments = mockComments.map((comment) => (
+  const renderComments = comments.map((comment) => (
     <div key={comment.id}>
       <ListItem
         className={classes.listItem}
